@@ -1,0 +1,18 @@
+{
+    "name": "WebSite",
+    "keywords": "web, bootstrap, css, server",
+    "description": "A simple web site builder using Bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bblanchon/ArduinoJson.git"
+  },
+    "version": "0.11",
+  "authors": {
+      "name": "John Romkey",
+    "url": "https://romkey.com/"
+  },
+  "exclude": [
+  ],
+  "frameworks": "arduino",
+  "platforms": "*"
+}
