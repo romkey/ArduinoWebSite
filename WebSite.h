@@ -3,6 +3,8 @@
 
 #include "Arduino.h"
 // #include <WebPage.h>
+#include <HTMLEncodedString.h>
+
 
 #define WEBSITE_MAX_NAV_LINKS 6
 
@@ -19,9 +21,9 @@ class WebSite {
  public:
   WebSite(void);
   WebSite(String);
-  WebSite(String, String);
+  WebSite(String, HTMLEncodedString);
 
-  bool AddPageToNav(String, String);
+  bool AddPageToNav(HTMLEncodedString, String);
   void AddBrandingImage(unsigned char*);
 
   struct WebSiteNav *GetNavs(void);

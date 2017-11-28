@@ -3,19 +3,19 @@
 
 #include "Arduino.h"
 #include <WebSite.h>
+#include <HTMLEncodedString.h>
 
 class WebPage {
  public:
   WebPage(WebSite*);
-  WebPage(WebSite*, String);
+  WebPage(WebSite*, HTMLEncodedString);
 
-  void AddContent(String);
-  void AddParagraph(String);
-  void AddHeading(int, String);
+  void AddContent(HTMLEncodedString);
+  void AddParagraph(HTMLEncodedString);
+  void AddHeading(int, HTMLEncodedString);
   void AddList(void);
 
   String GetHTML(void);
-  String HTMLEncode(String);
 
  private:
   WebSite *site;

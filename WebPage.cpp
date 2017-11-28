@@ -1,14 +1,15 @@
 #include <WebSite.h>
 #include <WebPage.h>
+#include <HTMLEncodedString.h>
 
-WebPage::WebPage(WebSite *site1) : WebPage::WebPage(site1, "") { };
+WebPage::WebPage(WebSite *site1) : WebPage::WebPage(site1, String("")) { };
 
-WebPage::WebPage(WebSite *site1, String title1) {
+WebPage::WebPage(WebSite *site1, HTMLEncodedString title1) {
   site = site1;
-  title = WebPage::HTMLEncode(title1);
+  title = title1;
 }
 
-void WebPage::AddContent(String new_content) {
+void WebPage::AddContent(HTMLEncodedString new_content) {
   content += new_content;
 }
 
@@ -23,28 +24,12 @@ String WebPage::GetHTML() {
     String("</div><script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'></body></html>");
 }
 
-void WebPage::AddHeading(int level, String text) {
-  content += "<H" + String(level) + ">" + WebPage::HTMLEncode(text) + "</H" + String(level) + ">";
+void WebPage::AddHeading(int level, HTMLEncodedString text) {
+  content += "<H" + String(level) + ">" + text + "</H" + String(level) + ">";
 }
 
-void WebPage::AddParagraph(String text) {
-  content += "<P>" + WebPage::HTMLEncode(text) + "</P>";
+void WebPage::AddParagraph(HTMLEncodedString text) {
+  content += "<P>" + text + "</P>";
 }
 
 // from https://stackoverflow.com/questions/5665231/most-efficient-way-to-escape-xml-html-in-c-string
-String WebPage::HTMLEncode(String original) {
-  String encoded = String("");
-
-  for(size_t pos = 0; pos != original.length(); ++pos) {
-     switch(original[pos]) {
-    case '&':  encoded += "&amp;";        break;
-    case '\"': encoded += "&quot;";       break;
-    case '\'': encoded += "&apos;";       break;
-    case '<':  encoded += "&lt;";         break;
-    case '>':  encoded += "&gt;";         break;
-    default:   encoded += original[pos];  break;
-    }
-  }
-
-  return encoded;
-}

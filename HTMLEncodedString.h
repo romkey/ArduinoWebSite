@@ -3,13 +3,15 @@
 
 #include "Arduino.h"
 
-class HTMLEncodedString {
+class HTMLEncodedString : public String {
+ public:
   HTMLEncodedString(String);
   HTMLEncodedString(String, bool);
 
   String getString(void);
 
   static String encode(String);
+
  private:
   String contents;
 };
