@@ -16,7 +16,7 @@ String WebPage::GetHTML() {
   return String("<html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css'>") +
     String( title == "" ? "" : "<title>" + title + "</title>") +
     String("</head><body><div class='container'><nav class='navbar navbar-expand-lg navbar-light bg-light'><ul class='navbar-nav mr-auto'>") +
-    (site->branding_image_base64 == String("") ? String("") : String("<a class='navbar-brand' href='#'><image src='data:\"") + site->branding_image_type + String("\";base64,") + site->branding_image_base64 + String("' height=23 width=23></a>")) + 
+    (site->branding_image_base64 == String("") ? String("") : String("<a class='navbar-brand' href='/'><image src='data:\"") + site->branding_image_type + String("\";base64,") + site->branding_image_base64 + String("' height=23 width=23></a>")) + 
     site->nav_bar +
     String("</ul></nav>") +
     content +

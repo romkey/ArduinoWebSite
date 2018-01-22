@@ -4,7 +4,9 @@
 #include "Arduino.h"
 // #include <WebPage.h>
 
-#define WEBSITE_MAX_NAV_LINKS 6
+#ifndef WEBSITE_MAX_NAV_LINKS
+#define WEBSITE_MAX_NAV_LINKS 4
+#endif
 
 class WebPage;
 
@@ -25,9 +27,6 @@ class WebSite {
   void AddBrandingImage(unsigned char*);
 
   struct WebSiteNav *GetNavs(void);
-
-  WebPage *CreatePage(void);
-  WebPage *CreatePage(String);
 
   String nav_bar = String("");
   String branding_image_type;

@@ -12,6 +12,8 @@ class WebPage {
   void AddContent(String);
   void AddParagraph(String);
   void AddHeading(int, String);
+  void AddHeading(String, int);
+  void AddHeading(String);
   void AddList(void);
 
   String GetHTML(void);
