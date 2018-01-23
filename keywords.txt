@@ -1,2 +1,10 @@
 WebSite	KEYWORD1
 WebPage	KEYWORD1
+
+addPageToNav KEYWORD2
+addBranding KEYWORD2
+
+addContent KEYWORD2
+addHeading KEYWORD2
+addParagraph KEYWORD2
+addList KEYWORD2
