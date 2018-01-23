@@ -17,8 +17,6 @@ class WebPage {
   WebPage(WebSite* webSite, String title);
 
   void addContent(String content);
-  void addHTMLEncodedContent(String content);
-  void addParagraph(String paragraph);
   void addHeading(String heading, int level);
   void addHeading(String heading) { addHeading(heading, 1); };
   void addParagraph(String text);
