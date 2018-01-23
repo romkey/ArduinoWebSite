@@ -37,10 +37,10 @@ Usage:
 
 ```
 WebSite site("en", "My Groovy Site");
-site.AddPageToNav("Info", "/info") 
+site.addPageToNav("Info", "/info") 
 
 WebPage page(&site, "Info");
-page.AddHeading("Info");
-page.AddContent("Uptime " + millis());
+page.addHeading("Info");
+page.addContent("Uptime " + millis());
 
 ```

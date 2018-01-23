@@ -4,7 +4,7 @@
     "description": "A simple web site builder using Bootstrap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bblanchon/ArduinoJson.git"
+    "url": "https://github.com/romkey/ArduinoWebSite.git"
   },
     "version": "0.11",
   "authors": {
