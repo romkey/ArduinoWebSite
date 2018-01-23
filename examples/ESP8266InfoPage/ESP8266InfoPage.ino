@@ -26,8 +26,8 @@ void setup() {
   ws.branding_image_type = String("image/jpeg");
   ws.branding_image_base64 = String(branding_image_base64);
 
-  ws.AddPageToNav(String("Info"), String("/info"));
-  ws.AddPageToNav(String("ESP"), String("/esp"));
+  ws.addPageToNav(String("Info"), String("/info"));
+  ws.addPageToNav(String("ESP"), String("/esp"));
 
   server.on("/info", handleInfo);
   server.on("/esp", handleESP);
@@ -43,8 +43,8 @@ void loop() {
 
 void handleInfo() {
   WebPage page = WebPage(&ws);
-  page.AddHeading(1, String("Info"));
-  page.AddContent(String("<ul class='list-group'>" +
+  page.addHeading(1, String("Info"));
+  page.addContent(String("<ul class='list-group'>" +
                                 String("<li class='list-group-item'>Uptime ") + String((millis() - startTime)/1000) + String(" seconds</li>") +
                                 String("<li class='list-group-item'>IP address ") + String(WiFi.localIP().toString()) + String("</li>") +
                                 String("<li class='list-group-item'>Hostname ") + String(WiFi.hostname()) + String("</li>") +
@@ -56,13 +56,13 @@ void handleInfo() {
                                 String("<li class='list-group-item'>RSSi ") + WiFi.RSSI() + String("</li>") +
                                 String("<li class='list-group-item'>Free memory ") + freeMemory()  + String("</li>") +
                                 String("</ul>")));
-  server.send(200, "text/html", page.GetHTML());
+  server.send(200, "text/html", page.getHTML());
 }
 
 void handleESP() {
    WebPage page = WebPage(&ws);
-   page.AddHeading(1, String("ESP"));
-   page.AddContent(String("<ul class='list-group'>") +
+   page.addHeading(1, String("ESP"));
+   page.addContent(String("<ul class='list-group'>") +
 		   "<li class='list-group-item'>VCC " + ESP.getVcc() + " </li>" +
 		   "<li class='list-group-item'>Free heap " + ESP.getFreeHeap() + "</li>" +
 		   "<li class='list-group-item'>Chip ID " + ESP.getChipId() + "</li>" +
@@ -71,7 +71,7 @@ void handleESP() {
 		   "<li class='list-group-item'>Flash chip speed " + ESP.getFlashChipSpeed()  + "</li>" +                             
 		   "<li class='list-group-item'>Sketch Size " + ESP.getSketchSize() + " </li>" +
 		   "<li class='list-group-item'>Free Sketch Space " + ESP.getFreeSketchSpace() + " </li></ul>");
-   server.send(200, "text/html", page.GetHTML());
+   server.send(200, "text/html", page.getHTML());
 }
 
 void handleNotFound(){
