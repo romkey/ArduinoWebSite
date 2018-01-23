@@ -1,8 +1,12 @@
+/* 
+   WebSite.h
+   Created by John Romkey - https://romkey.com/
+   December 6 2017
+ */
 #ifndef ARDUINO_WEB_SITE_H
 #define ARDUINO_WEB_SITE_H
 
-#include "Arduino.h"
-// #include <WebPage.h>
+#include <Arduino.h>
 
 #ifndef WEBSITE_MAX_NAV_LINKS
 #define WEBSITE_MAX_NAV_LINKS 4
@@ -20,22 +24,23 @@ struct  WebSiteNav {
 class WebSite {
  public:
   WebSite(void);
-  WebSite(String);
-  WebSite(String, String);
+  WebSite(String language);
+  WebSite(String language, String title);
 
-  bool AddPageToNav(String, String);
-  void AddBrandingImage(unsigned char*);
+  bool addPageToNav(String name, String link);
 
-  struct WebSiteNav *GetNavs(void);
-
-  String nav_bar = String("");
-  String branding_image_type;
-  String branding_image_base64;
-
+  void addBranding(String brandingImageBase64, String brandingImageType);
  private:
-  String language;
-  String name;
-  struct WebSiteNav nav;
+  friend class WebPage;
+
+  String _language;
+  String _name;
+
+  struct WebSiteNav _nav;
+
+  String _navBar = String("");
+  String _brandingImageBase64 = "";
+  String _brandingImageType = "";
 };
 
 #endif // ARDUINO_WEB_SITE_H

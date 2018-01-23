@@ -8,25 +8,24 @@ WebSite::WebSite(String language) : WebSite::WebSite(language, "") {
 }
 
 WebSite::WebSite(String language1, String name1) {
-  language = language1;
-  name = name1;
-  branding_image_type = String("");
-  branding_image_base64 = String("");
+  _language = language1;
+  _name = name1;
 }
 
-bool WebSite::AddPageToNav(String name, String href) {
-  if(nav.count >= WEBSITE_MAX_NAV_LINKS) {
+bool WebSite::addPageToNav(String name, String href) {
+  if(_nav.count >= WEBSITE_MAX_NAV_LINKS) {
     return false;
   }
   
-  nav.name[nav.count] = name;
-  nav.href[nav.count++] = href;
+  _nav.name[_nav.count] = name;
+  _nav.href[_nav.count++] = href;
 
-  nav_bar += String("<li class='nav-item'><a class='nav-link' href='") + String(href) + String("'>") + String(name) + String("</a></li>");
+  _navBar += String("<li class='nav-item'><a class='nav-link' href='") + String(href) + String("'>") + String(name) + String("</a></li>");
 
   return true;
 }
 
-struct WebSiteNav *WebSite::GetNavs(void) {
-  return &nav;
+void WebSite::addBranding(String brandingImageBase64, String brandingImageType) {
+  _brandingImageBase64 = brandingImageBase64;
+  _brandingImageType = brandingImageType;
 }
