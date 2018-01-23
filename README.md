@@ -41,6 +41,6 @@ site.addPageToNav("Info", "/info")
 
 WebPage page(&site, "Info");
 page.addHeading("Info");
-page.addContent("Uptime " + millis());
+page.addContent(String("Uptime ") + millis());
 
 ```
