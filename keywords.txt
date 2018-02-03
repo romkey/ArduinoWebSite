@@ -1,5 +1,5 @@
-WebSite	KEYWORD1
-WebPage	KEYWORD1
+BootstrapWebSite	KEYWORD1
+BootstrapWebPage	KEYWORD1
 
 addPageToNav KEYWORD2
 addBranding KEYWORD2

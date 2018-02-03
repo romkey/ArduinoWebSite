@@ -1,6 +1,6 @@
-# ArduinoWebSite
+# BootstrapWebSite
 
-This library provides simple classes for manging a web site and pages on Arduino projects.
+This library provides simple classes for managing a web site and pages on Arduino projects.
 
 We use [Bootstrap 4](https://getbootstrap.com/) to style the site. Bootstrap is a very popular and powerful web page framework. You've likely seen it in use on dozens of web sites. Bootstrap lets you build good looking web pages but can be verbose and fussy when you write the code for the pages.
 
@@ -19,28 +19,40 @@ This library currently does not assist with HTML or URL encoding. HTML needs to 
 
 # Usage
 
-## WebSite
+## `BootstrapWebSite`
 
 In this context of this library, a `WebSite` consists of the language of the site (given as a two character ISO language code), the site's name, an optional branding image, and a navigation bar consisting of links to individual pages on the site.
 
 Usage:
 
 ```
-WebSite site();
-WebSite site("en");
-WebSite site("en", "My Awesome Arduino Server");
+BootstrapWebSite site();
+BootstrapWebSite site("en");
+BootstrapWebSite site("en", "My Awesome ESP8266 Server");
 ```
 
-## WebPage
+## `BootstrapWebPage`
 
 Usage:
 
 ```
-WebSite site("en", "My Groovy Site");
+BootstrapWebSite site("en", "My Groovy Site");
 site.addPageToNav("Info", "/info") 
 
-WebPage page(&site, "Info");
+BootstrapWebPage page(&site, "Info");
 page.addHeading("Info");
 page.addContent(String("Uptime ") + millis());
 
 ```
+
+# ROADMAP
+
+Plans for future work:
+- refactor out `WebSite` and `WebPage` superclasses which do the basic
+  site management and page creation work and are invoked via child
+  classes which provide the CSS framework information
+- add 404 pages to `BootstrapWebSite`
+- add HTML Form support
+- try to implement HTMLEncodedString to automatically encode content
+- look at reducing heap fragmentation by reducing the use of String
+- unit testing

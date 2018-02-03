@@ -1,20 +1,20 @@
 /* 
-   WebPage.h
+   BootstrapWebPage.h
    Created by John Romkey - https://romkey.com/
    December 6 2017
 
    MIT License
  */
-#ifndef ARDUINO_WEB_PAGE_H
-#define ARDUINO_WEB_PAGE_H
+#ifndef BOOTSTRAP_WEB_PAGE_H
+#define BOOTSTRAP_WEB_PAGE_H
 
 #include <Arduino.h>
-#include <WebSite.h>
+#include <BootstrapWebSite.h>
 
-class WebPage {
+class BootstrapWebPage {
  public:
-  WebPage(WebSite* webSite);
-  WebPage(WebSite* webSite, String title);
+  BootstrapWebPage(BootstrapWebSite* webSite);
+  BootstrapWebPage(BootstrapWebSite* webSite, String title);
 
   void addContent(String content);
   void addHeading(String heading, int level);
@@ -37,9 +37,9 @@ class WebPage {
   String getHTML(void);
 
  private:
-  WebSite *_site;
+  BootstrapWebSite *_site;
   String _title;
   String _content;
 };
 
-#endif // ARDUINO_WEB_PAGE_H
+#endif // BOOTSTRAP_WEB_PAGE_H
