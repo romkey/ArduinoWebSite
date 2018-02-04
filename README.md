@@ -12,7 +12,8 @@ This library is decoupled from the web server. It focusses solely on page creati
 
 In order to save local resources, we load Bootstrap from an external CDN. This will fail if the computer loading pages from the Arduino server is not also connected to the public Internet at the same time.
 
-We use the Arduino `String` type. Memory management `String` is problematic. It may not work well in highly resource-constrained environments.
+We use the Arduino `String` type. Memory management with `String` is problematic - it quickly causes heap fragmentation and may not work 
+well in highly resource-constrained environments or in projects which are expected to run for a long time without rebooting.
 
 This library currently does not assist with HTML or URL encoding. HTML needs to escape embedded `<`, `>` and `&` characters. 
 
