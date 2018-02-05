@@ -29,6 +29,7 @@ class BootstrapWebSite {
   bool addPageToNav(String name, String link);
 
   void addBranding(String brandingImageBase64, String brandingImageType);
+
  private:
   friend class BootstrapWebPage;
 

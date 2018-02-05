@@ -53,7 +53,8 @@ Plans for future work:
   site management and page creation work and are invoked via child
   classes which provide the CSS framework information
 - add 404 pages to `BootstrapWebSite`
-- add HTML Form support
-- try to implement HTMLEncodedString to automatically encode content
+- implement `addFooter`
+- add HTML Form support - possibly `addForm` with a `FormElement` superclass
+- try to implement `HTMLEncodedString` to automatically encode content
 - look at reducing heap fragmentation by reducing the use of String
 - unit testing

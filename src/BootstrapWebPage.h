@@ -16,10 +16,12 @@ class BootstrapWebPage {
   BootstrapWebPage(BootstrapWebSite* webSite);
   BootstrapWebPage(BootstrapWebSite* webSite, String title);
 
-  void addContent(String content);
   void addHeading(String heading, int level);
   void addHeading(String heading) { addHeading(heading, 1); };
   void addParagraph(String text);
+
+  void addLink(String url, String content);
+  void addContent(String content);
 
   void addList(String item) { addList(item, "", "", "", "", "", "", "", "", ""); };
   void addList(String item1, String item2) { addList(item1, item2, "", "", "", "", "", "", "", ""); };

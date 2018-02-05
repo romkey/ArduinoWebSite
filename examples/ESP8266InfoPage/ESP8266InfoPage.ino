@@ -64,7 +64,7 @@ void handleInfo() {
 void handleESP() {
   BootstrapWebPage page(&ws);
 
-  page.addHeading(1, String("ESP"));
+  page.addHeading(String("ESP"), 1);
   page.addList(String("VCC ") + ESP.getVcc(),
                String("Free heap ") + ESP.getFreeHeap(),
                String("Chip ID ") + ESP.getChipId() ,

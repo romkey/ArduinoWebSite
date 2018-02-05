@@ -1,10 +1,10 @@
 {
-    "name": "WebSite",
+    "name": "BootstrapWebSite",
     "keywords": "web, bootstrap, css, server",
-    "description": "A simple web site builder using Bootstrap",
+    "description": "A simple web site builder using Bootstrap for Arduino projects",
   "repository": {
     "type": "git",
-    "url": "https://github.com/romkey/ArduinoWebSite.git"
+    "url": "https://github.com/romkey/BootstrapWebSite.git"
   },
     "version": "0.11",
   "authors": {

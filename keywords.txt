@@ -8,3 +8,5 @@ addContent KEYWORD2
 addHeading KEYWORD2
 addParagraph KEYWORD2
 addList KEYWORD2
+addLink KEYWORD2
+getHTML KEYWORD2
