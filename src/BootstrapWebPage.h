@@ -20,6 +20,7 @@ class BootstrapWebPage {
   void addHeading(String heading) { addHeading(heading, 1); };
   void addParagraph(String text);
 
+  static String createLink(String url, String content);
   void addLink(String url, String content);
   void addContent(String content);
 

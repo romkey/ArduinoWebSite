@@ -20,8 +20,12 @@ void BootstrapWebPage::addParagraph(String text) {
   _content += "<p>" + text + "</p>";
 }
 
+static String BootstrapWebPage::createLink(String url, String content) {
+  return String("<a href='") + url + "'>" + content + "</a>";
+}
+
 void BootstrapWebPage::addLink(String url, String content) {
-  _content += "<a href='" + url + "'>" + content + "</a>";
+  _content += BootstrapWebPage::createLink(url, content);
 }
 
 String BootstrapWebPage::getHTML() {

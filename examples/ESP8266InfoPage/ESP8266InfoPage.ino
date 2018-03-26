@@ -1,9 +1,12 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include <ESP8266mDNS.h>
 #include <ESP.h>
 
 #include <BootstrapWebSite.h>
 #include <BootstrapWebPage.h>
+
+#define MDNS_NAME	"BoostrapWebSite Example"
 
 const char* ssid = "YOUR WIFI SSID";
 const char* password = "YOUR WIFI PASSWORD";
@@ -26,12 +29,16 @@ void setup() {
     Serial.println("derp");
   }
 
-  ws.branding_image_type = String("image/jpeg");
-  ws.branding_image_base64 = String(branding_image_base64);
+  if (MDNS.begin(MDNS_NAME)) {
+    Serial.println("MDNS responder started");
+  }
 
-  ws.addPageToNav(String("Info"), String("/info"));
-  ws.addPageToNav(String("ESP"), String("/esp"));
+  ws.addBranding(branding_image_base64, "image/jpeg");
 
+  ws.addPageToNav("Info", "/info");
+  ws.addPageToNav("ESP", "/esp");
+
+  server.on("/", handleIndex);
   server.on("/info", handleInfo);
   server.on("/esp", handleESP);
 
@@ -44,13 +51,22 @@ void loop() {
   server.handleClient();
 }
 
+void handleIndex() {
+  BootstrapWebPage page(&ws);
+
+  page.addHeading("Welcome to BootstrapWebSite");
+  page.addParagraph(String("This project demonstrates the ") + BootstrapWebPage::createLink("https://github.com/romkey/BootstrapWebSite", "BootstrapWebSite library") + " for Arduino/ESP8266 projects.");
+
+  server.send(200, "text/html", page.getHTML());
+}
+
 void handleInfo() {
   BootstrapWebPage page(&ws);
 
-  page.addHeading(String("Info"));
-  page.addList(String("Uptime ") + String((millis() - startTime) / 1000) + String(" seconds"),
-	       String("IP address ") + String(WiFi.localIP().toString()),
-	       String("Hostname ") + String(WiFi.hostname()),
+  page.addHeading("Info");
+  page.addList(String("Uptime ") + String((millis() - startTime) / 1000) + " seconds",
+	       String("IP address ") + WiFi.localIP().toString(),
+	       String("Hostname ") + WiFi.hostname(),
 	       String("MAC address ") + WiFi.macAddress(),
 	       String("Subnet mask ") + WiFi.subnetMask().toString(),
 	       String("router IP ") + WiFi.gatewayIP().toString(),
